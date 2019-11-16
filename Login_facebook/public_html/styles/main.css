@@ -1,0 +1,53 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Nov 14, 2019, 1:45:20 PM
+    Author     : OS
+*/
+body{width:100%;font-size:95%;background-color: #EDF0F5}
+
+header{background-color:#3C5B99;color:white;width: 100%}
+section{width: 1000px;height: 80px;margin: auto}
+#logo{float:left;margin-right: 220px;width: 400px;margin-left: -20px}
+#email,#password,#login{float:left;padding: 1em 0;}
+a{text-decoration: none;color:#8393C5}
+#email,#password{width:150px;margin-right: 10px;}
+
+
+input[type=submit]{float:left;width: 80px;margin: 1.4em 0;background-color: #365899;color:white;}
+
+article{width: 1000px;height: 900px;margin: auto}
+
+#form_1{line-height: 10px}
+#infomation{float:left;width: 450px;margin-right: 150px;}
+#log{float:left;width: 400px;}
+article img{vertical-align: middle;margin-right: 10px}
+#firstname,#Lastname,#email_1,#email_2,#password_1
+{
+height: 30px;font-size: 120%;                                                   
+border:solid 1px #c4bec4;
+-moz-border-radius-topleft: 7px;
+-moz-border-radius-topright:7px;
+-moz-border-radius-bottomleft:7px;
+-moz-border-radius-bottomright:6px;
+-webkit-border-top-left-radius:7px;
+-webkit-border-top-right-radius:7px;
+-webkit-border-bottom-left-radius:7px;
+-webkit-border-bottom-right-radius:6px;
+border-top-left-radius:7px;
+border-top-right-radius:7px;
+border-bottom-left-radius:7px;
+border-bottom-right-radius:6px;
+}
+
+#firstname,#Lastname{width:189px;}
+#firstname{margin-right: 10px}
+#email_1,#email_2,#password_1{width:400px;}
+
+select{height:28px;width:75px;border-radius:2px;margin-right: 5px;float:left;}
+input [type=radio]{clear: both;}
+label{font-size: 120%}
+
