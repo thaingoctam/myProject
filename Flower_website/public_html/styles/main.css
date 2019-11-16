@@ -1,0 +1,73 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Nov 15, 2019, 12:25:51 PM
+    Author     : OS
+*/
+*{margin: 0;padding: 0}
+html{width:100%;height:1000px}
+
+body{width:65%;margin: auto;border:1px solid red;}
+header{width:100%;height: 150px;}
+a{text-decoration: none;white-space: nowrap}
+#nav-menu{width:100%;height: 40px;background-color: #5A9448;border-top: 3px solid white;border-bottom: 3px solid white;}
+#nav-menu ul{display: flex;flex-direction: row;list-style-type: none;align-items: stretch;}
+#nav-menu li{width:16.66%; text-align: center;border-right: 1px solid white;}
+#nav-menu a{display: block;width: 100%;padding: .7em 0;}
+#contact{border-right:1px solid #5A9448}
+
+/* end navigate menu */
+
+aside{width:25%;height: 600px;background-color:  #F2F7E3;line-height: 42px;float:left;margin-right: 2%}
+aside ul{list-style-type: square;list-style-position: inside;margin-left: 15px;}
+aside li{border-bottom: 1px dotted black}
+aside h2{background-color: #DDF3AB;white-space: nowrap}
+last-items{border-bottom:1px solid #5A9448}
+
+/*end aside section */
+
+main{    height: 600px;width: 73%;display: grid;grid-template: repeat(2, 297.5px)/ repeat(3, 32.8%);grid-gap: 5px;justify-items: stretch;align-items: stretch}
+.picture_fowers{    max-width: 100%;height: 205px;display: block;margin: auto;}
+main div{border: 2px solid #5A9448;}
+main h4{text-align: center;padding: 13px 0;color: green;white-space: nowrap}
+.detail {float: left;background-color: #DDF3AA;width: 50%;display: block;text-align: center;padding: 14px 0}
+.order {float: left;background-color: #C85067;width: 50%;display: block;text-align: center;padding: 14px 0}
+
+/*end main */
+footer{clear:both;width:100%;height: 50px;background-color: #5A9448;text-align: center;color:white}
+
+/* end footer */
+
+form {float:left ;height: 560px;width:73%;margin-top: 10px;padding-top: 30px;border-top:2px solid black;}
+#star{color:red;}
+label,input {width: 100%;display:block;}
+input{height:30px;border:solid 2px #b3adb3;
+-moz-border-radius-topleft: 6px;
+-moz-border-radius-topright:7px;
+-moz-border-radius-bottomleft:7px;
+-moz-border-radius-bottomright:6px;
+-webkit-border-top-left-radius:6px;
+-webkit-border-top-right-radius:7px;
+-webkit-border-bottom-left-radius:7px;
+-webkit-border-bottom-right-radius:6px;
+border-top-left-radius:6px;
+border-top-right-radius:7px;
+border-bottom-left-radius:7px;
+border-bottom-right-radius:6px}
+#name_1,#email_1,#phone_1,#website_1{float:left;width:45%;margin-right:5%}
+
+#massage_1{padding-right:5%;}
+#massage{width: 100%;height:150px;}
+
+
+
+
+
+
+
+
+
+
