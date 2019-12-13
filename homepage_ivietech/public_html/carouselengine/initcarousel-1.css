@@ -1,0 +1,109 @@
+/* content */
+
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+#amazingcarousel-1 .amazingcarousel-image {	
+	position: relative;
+	padding: 0px;
+	width: 80px;
+	float: left;
+}
+
+#amazingcarousel-1 .amazingcarousel-image img {
+	display: block;
+	width: 80%;
+	border: 0;
+	margin: 0;
+	padding: 0;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+}
+
+#amazingcarousel-1 .amazingcarousel-text {
+        font-family: 'Roboto', sans-serif;
+        font-size: 80%;
+	width: 215px;
+	float: left;
+}
+
+#amazingcarousel-1 .amazingcarousel-title {
+	position:relative;
+	color:white;
+	margin:6px;
+	text-align:left;
+	line-height: 16px;
+	height: 16px;
+	overflow: hidden;
+}
+#amazingcarousel-1 .amazingcarousel-title a{
+    color:white;
+    text-decoration: none;
+}
+
+#amazingcarousel-1 .amazingcarousel-title a:hover{
+    text-decoration: underline;
+    
+}
+
+#amazingcarousel-1 .amazingcarousel-description {
+	position:relative;
+	color:white;
+	margin:6px;
+	text-align:left;
+	line-height: 15px;		
+	height: 20px;
+	overflow: hidden;
+}
+
+/* carousel */
+
+#amazingcarousel-container-1 {
+	padding: 5px 10px; 
+}
+
+#amazingcarousel-1 .amazingcarousel-list-container { 
+	padding: 0;
+}
+
+/* item */
+
+#amazingcarousel-1 .amazingcarousel-item-container {
+	text-align: center;
+	padding: 4px;
+	background-color: #CA3438;
+	-moz-box-shadow: 0px 0px 5px 1px rgba(96, 96, 96, 0.1);
+	-webkit-box-shadow: 0px 0px 5px 1px rgba(96, 96, 96, 0.1);
+	box-shadow: 0px 0px 5px 1px rgba(96, 96, 96, 0.1);
+}
+
+/* arrows */
+
+#amazingcarousel-1 .amazingcarousel-prev {
+	right: 0%;
+	top: -60px;
+	margin-right: 32px;
+	margin-top: 8px;
+}
+
+#amazingcarousel-1 .amazingcarousel-next {
+	right: 0%;
+	top: -60px;
+	margin-right: 0px;
+	margin-top: 8px;
+}
+
+/* navigation bullets */
+
+#amazingcarousel-1 .amazingcarousel-nav {
+	position: absolute;
+	top: 100%;
+	right: 0%;
+	margin-right: 64px;
+	margin-top: 14px;
+}
+
+#amazingcarousel-1 .amazingcarousel-bullet-wrapper {
+	margin: 0;
+}
+

@@ -1,0 +1,110 @@
+/* content */
+
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+#amazingcarousel-2 .amazingcarousel-image {	
+	position: relative;
+	padding: 0px;
+	width:50px;
+	float: left;
+}
+
+#amazingcarousel-2 .amazingcarousel-image img {
+margin-left:10px;
+margin-top:10px;
+	display: block;
+	width: 50px;
+	max-width: 100%;
+	border: 0;
+	padding: 0;
+	-moz-border-radius: 0px;
+	-webkit-border-radius: 0px;
+	border-radius: 5px;
+}
+
+#amazingcarousel-2 .amazingcarousel-text {
+        color: white;
+        font-family: 'Roboto', sans-serif;
+        font-size: 80%;
+	width:270px;
+	float: left;
+}
+
+#amazingcarousel-2 .amazingcarousel-text a{
+        color:white;
+        text-decoration: none;
+}
+
+#amazingcarousel-2 .amazingcarousel-text a:hover{
+        text-decoration:underline;
+}
+
+#amazingcarousel-2 .amazingcarousel-title {
+	position:relative;
+        margin-left:25px;
+	text-align:left;
+	line-height: 20px;
+	height: 20px;
+	overflow: hidden;
+}
+
+#amazingcarousel-2 .amazingcarousel-description {
+	position:relative;
+	margin-left:25px;
+	text-align:left;
+	line-height: 15px;		
+	height: 20px;
+	overflow: hidden;
+}
+
+/* carousel */
+
+#amazingcarousel-container-2 {
+	padding: 5px 10px; 
+}
+
+#amazingcarousel-2 .amazingcarousel-list-container { 
+	padding: 0;
+}
+
+/* item */
+
+#amazingcarousel-2 .amazingcarousel-item-container {
+	text-align: center;
+	padding: 4px;
+	background-color: #CA3438;
+	-moz-box-shadow: 0px 0px 5px 1px rgba(96, 96, 96, 0.1);
+	-webkit-box-shadow: 0px 0px 5px 1px rgba(96, 96, 96, 0.1);
+	box-shadow: 0px 0px 5px 1px rgba(96, 96, 96, 0.1);
+}
+
+/* arrows */
+
+#amazingcarousel-2 .amazingcarousel-prev {
+	right: 0%;
+	top: -60px;
+	margin-right: 32px;
+	margin-top: 8px;
+}
+
+#amazingcarousel-2 .amazingcarousel-next {
+	right: 0%;
+	top:-60px;
+	margin-right: 0px;
+	margin-top: 8px;
+}
+
+/* navigation bullets */
+
+#amazingcarousel-2 .amazingcarousel-nav {
+	position: absolute;
+	top: 100%;
+	right: 0%;
+	margin-right: 64px;
+	margin-top: 14px;
+}
+
+#amazingcarousel-2 .amazingcarousel-bullet-wrapper {
+	margin: 0;
+}
+
