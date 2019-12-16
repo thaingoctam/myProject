@@ -37,6 +37,7 @@ class Ui_Player_Music(object):
         self.frame = QtWidgets.QFrame(self.centralwidget)
         self.frame.setGeometry(QtCore.QRect(0, 200, 541, 141))
         self.frame.setStyleSheet("background-color:rgb(56, 103, 164);\n"
+"\n"
 "margin-bottom:0;\n"
 "padding-bottom:0;\n"
 "")
@@ -54,7 +55,7 @@ class Ui_Player_Music(object):
 "}\n"
 "\n"
 "QSlider::handle:horizontal {\n"
-"    background: white;\n"
+"    background: rgb(247, 94, 112);\n"
 "    border: 2px solid black;\n"
 "    width: 13px;\n"
 "    margin:-7px 0;\n"
@@ -83,17 +84,18 @@ class Ui_Player_Music(object):
         self.play_pause_pushButton.setCursor(QtGui.QCursor(QtCore.Qt.ArrowCursor))
         self.play_pause_pushButton.setFocusPolicy(QtCore.Qt.StrongFocus)
         self.play_pause_pushButton.setToolTip("Pause Song")
-        self.play_pause_pushButton.setStyleSheet(" QPushButton {\n"
+        self.play_pause_pushButton.setStyleSheet("QPushButton {\n"
 "\n"
-"boder:1px solid white;\n"
-"background-color: rgb(56, 103, 164);\n"
-"border-radius:23px; }\n"
+"border-radius:15px; }\n"
 "\n"
 "QPushButton:hover {\n"
-"background-color: rgb(56, 103, 140);\n"
-"border:1px solid rgb(160, 160, 160);\n"
+"Border: 2px solid rgb(54, 40, 79);\n"
 " }\n"
 "\n"
+"QPushButton:pressed {\n"
+"background-color: rgb(58, 67, 70);\n"
+"Border: none;\n"
+" }\n"
 "\n"
 "\n"
 "\n"
@@ -110,15 +112,17 @@ class Ui_Player_Music(object):
         self.Next_pushButton = QtWidgets.QPushButton(self.frame)
         self.Next_pushButton.setGeometry(QtCore.QRect(290, 30, 51, 51))
         self.Next_pushButton.setCursor(QtGui.QCursor(QtCore.Qt.ArrowCursor))
-        self.Next_pushButton.setStyleSheet(" QPushButton {\n"
-"\n"
-"boder:1px solid white;\n"
-"background-color: rgb(56, 103, 164);\n"
-"border-radius:23px; }\n"
+        self.Next_pushButton.setStyleSheet("QPushButton {\n"
+"margin:5px;\n"
+"border-radius:15px; }\n"
 "\n"
 "QPushButton:hover {\n"
-"background-color: rgb(56, 103, 140);\n"
-"border:1px solid rgb(160, 160, 160);\n"
+"Border: 2px solid rgb(54, 40, 79);\n"
+" }\n"
+"\n"
+"QPushButton:pressed {\n"
+"background-color: rgb(58, 67, 70);\n"
+"Border: none;\n"
 " }")
         self.Next_pushButton.setText("")
         icon2 = QtGui.QIcon()
@@ -130,41 +134,48 @@ class Ui_Player_Music(object):
         self.previous_pushButton = QtWidgets.QPushButton(self.frame)
         self.previous_pushButton.setGeometry(QtCore.QRect(150, 30, 51, 51))
         self.previous_pushButton.setCursor(QtGui.QCursor(QtCore.Qt.ArrowCursor))
-        self.previous_pushButton.setStyleSheet(" QPushButton {\n"
-"\n"
-"boder:1px solid white;\n"
-"background-color: rgb(56, 103, 164);\n"
-"border-radius:23px; }\n"
+        self.previous_pushButton.setStyleSheet("QPushButton {\n"
+"margin:5px;\n"
+"border-radius:15px; }\n"
 "\n"
 "QPushButton:hover {\n"
-"background-color: rgb(56, 103, 140);\n"
-"border:1px solid rgb(160, 160, 160);\n"
+"Border: 2px solid rgb(54, 40, 79);\n"
+" }\n"
+"\n"
+"QPushButton:pressed {\n"
+"background-color: rgb(58, 67, 70);\n"
+"Border: none;\n"
 " }")
         self.previous_pushButton.setText("")
         icon3 = QtGui.QIcon()
         icon3.addPixmap(QtGui.QPixmap("Icon_music/previous_btt.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.previous_pushButton.setIcon(icon3)
         self.previous_pushButton.setIconSize(QtCore.QSize(30, 30))
-        self.previous_pushButton.setFlat(True)
+        self.previous_pushButton.setAutoDefault(False)
+        self.previous_pushButton.setFlat(False)
         self.previous_pushButton.setObjectName("previous_pushButton")
         self.Repeat_pushButton = QtWidgets.QPushButton(self.frame)
         self.Repeat_pushButton.setGeometry(QtCore.QRect(70, 30, 51, 51))
         self.Repeat_pushButton.setCursor(QtGui.QCursor(QtCore.Qt.ArrowCursor))
-        self.Repeat_pushButton.setStyleSheet(" QPushButton {\n"
-"\n"
-"boder:1px solid white;\n"
-"background-color: rgb(56, 103, 164);\n"
-"border-radius:23px; }\n"
+        self.Repeat_pushButton.setStyleSheet("QPushButton {\n"
+"margin:4px;\n"
+"border-radius:15px; }\n"
 "\n"
 "QPushButton:hover {\n"
-"background-color: rgb(56, 103, 140);\n"
-"border:1px solid rgb(160, 160, 160);\n"
+"Border: 2px solid rgb(54, 40, 79);\n"
+" }\n"
+"\n"
+"QPushButton:pressed {\n"
+"background-color: rgb(58, 67, 70);\n"
+"Border: none;\n"
 " }")
         self.Repeat_pushButton.setText("")
         icon4 = QtGui.QIcon()
-        icon4.addPixmap(QtGui.QPixmap("Icon_music/repeat_button.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon4.addPixmap(QtGui.QPixmap("Icon_music/NoRepeat_btt.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon4.addPixmap(QtGui.QPixmap("Icon_music/Repeat_btt.png"), QtGui.QIcon.Normal, QtGui.QIcon.On)
         self.Repeat_pushButton.setIcon(icon4)
         self.Repeat_pushButton.setIconSize(QtCore.QSize(30, 30))
+        self.Repeat_pushButton.setCheckable(True)
         self.Repeat_pushButton.setFlat(True)
         self.Repeat_pushButton.setObjectName("Repeat_pushButton")
         self.horizontalSlider_2 = QtWidgets.QSlider(self.frame)
@@ -172,18 +183,19 @@ class Ui_Player_Music(object):
         self.horizontalSlider_2.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.horizontalSlider_2.setStyleSheet("QSlider::groove:horizontal {\n"
 "    border: 1px solid #999999;\n"
-"    height: 3px; /* the groove expands to the size of the slider by default. by giving it a height, it has a fixed size */\n"
+"    height: 2px; /* the groove expands to the size of the slider by default. by giving it a height, it has a fixed size */\n"
 "    background:white;\n"
 "\n"
 "}\n"
 "\n"
 "QSlider::handle:horizontal {\n"
-"    background: white;\n"
+"    background: rgb(247, 94, 112);\n"
 "    border: 2px solid black;\n"
 "    width: 13px;\n"
-"    margin:-7px 0;\n"
-"    border-radius: 7px;\n"
+"    margin:-8px 0;\n"
+"    border-radius: 8px;\n"
 "}")
+        self.horizontalSlider_2.setMaximum(100)
         self.horizontalSlider_2.setOrientation(QtCore.Qt.Horizontal)
         self.horizontalSlider_2.setObjectName("horizontalSlider_2")
         self.Voice_label = QtWidgets.QLabel(self.frame)
@@ -220,6 +232,7 @@ class Ui_Player_Music(object):
         self.Album.setStyleSheet("")
         self.Album.setText("")
         self.Album.setScaledContents(True)
+        self.Album.setWordWrap(False)
         self.Album.setObjectName("Album")
         self.label_2 = QtWidgets.QLabel(self.centralwidget)
         self.label_2.setGeometry(QtCore.QRect(216, 0, 331, 201))

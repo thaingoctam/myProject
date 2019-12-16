@@ -25,6 +25,8 @@ class MyForm(QMainWindow):
         self.ui.volume.clicked.connect(self.volumestate)
         self.ui.horizontalSlider.sliderMoved.connect(self.seekPosition)
         self.ui.horizontalSlider_2.sliderMoved.connect(self.volume)
+        self.ui.actionAbout_Author.triggered.connect(self.Author)
+        self.ui.Repeat_pushButton.clicked.connect(self.btnrepeatstate)
         self.player.positionChanged.connect(self.qmp_positionChanged)
         self.player.audioAvailableChanged.connect(self.changeAlbum)
         self.player.durationChanged.connect(self.update_duration)
@@ -73,7 +75,7 @@ class MyForm(QMainWindow):
                 if self.currentPlaylist.mediaCount() == 0:  # mediaCount() Trả về số Item trong playlist
                     self.statusBar().show()
                     self.statusBar().showMessage('No song for play!')
-                    self.timer.start(7000)
+                    self.timer.start(6000)
                     self.timer.timeout.connect(self.PlotUpdate)
                 if self.currentPlaylist.mediaCount() != 0:
                     self.player.setPlaylist(self.currentPlaylist)
@@ -150,29 +152,46 @@ class MyForm(QMainWindow):
                    pixmap.loadFromData(tag.data)
             self.ui.Album.setPixmap(pixmap)
 
-            self.ui.label_2.setText('Playing: %s' % self.player.metaData("Title"))
-            self.ui.label_2.setAlignment(Qt.AlignRight)
+            self.ui.label_2.setText('Playing: %s \nSinger:%s' % (self.player.metaData("Title"),self.player.metaData("AlbumArtist")))
+            self.ui.label_2.setAlignment(Qt.AlignLeft)
 
             width = self.ui.label_2.fontMetrics().boundingRect(self.ui.label_2.text()).width()
 
             self.anim = QPropertyAnimation(self.ui.label_2, b"geometry")
-            self.anim.setDuration(12000)
+            self.anim.setDuration(10000)
             self.anim.setLoopCount(-1)  # lặp lại vô tận
-            self.anim.setKeyValueAt(0, QRect(220-width, 0, width + 2, 30))
+            self.anim.setKeyValueAt(0, QRect(220-width, 0, width + 2, 50))
             #self.anim.setKeyValueAt(0, QRect(230, 0, width+2, 30))
             #self.anim.setKeyValueAt(0.5, QRect(540-width, 0, width+2, 30))
             #self.anim.setKeyValueAt(1, QRect(230, 0, width+2, 30))
-            self.anim.setKeyValueAt(1, QRect(550, 0, width + 2, 30))
+            self.anim.setKeyValueAt(1, QRect(550, 0, width + 2, 50))
             self.anim.start()
 
 
-
-
     def prevItemPlaylist(self):
-        self.player.playlist().previous()
+        if self.currentPlaylist.mediaCount() != 0:
+           self.player.playlist().previous()
 
     def nextItemPlaylist(self):
-        self.player.playlist().next()
+        if self.currentPlaylist.mediaCount() != 0:
+           self.player.playlist().next()
+
+    def Author(self):
+        infoBox = QMessageBox(self)
+        infoBox.setWindowTitle('About Author')
+        infoBox.setTextFormat(Qt.RichText)
+        infoBox.setText('<tr><td>This is the first App of me.</td></tr> <tr><td>Thank You use this App.</td></tr>  '
+                        '<tr><td>If you like Please contact with me on:</td></tr> '
+                        '<tr><td>FaceBook: https://www.facebook.com/tam.thaingoc </td></tr> '
+                        '<tr><td>Or Gmail: Thaingoctam11cdt2@gmail.com!</td></tr>')
+        infoBox.addButton('OK', QMessageBox.AcceptRole)
+        infoBox.show()
+
+    def btnrepeatstate(self):
+        if self.ui.Repeat_pushButton.isChecked():
+             self.player.setLooping(True)
+        else:
+             self.player.setLooping(False)
 
 if __name__=="__main__":
     app = QApplication(sys.argv)
