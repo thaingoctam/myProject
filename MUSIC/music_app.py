@@ -151,6 +151,19 @@ class MyForm(QMainWindow):
             self.ui.Album.setPixmap(pixmap)
 
             self.ui.label_2.setText('Playing: %s' % self.player.metaData("Title"))
+            self.ui.label_2.setAlignment(Qt.AlignRight)
+
+            width = self.ui.label_2.fontMetrics().boundingRect(self.ui.label_2.text()).width()
+
+            self.anim = QPropertyAnimation(self.ui.label_2, b"geometry")
+            self.anim.setDuration(12000)
+            self.anim.setLoopCount(-1)  # lặp lại vô tận
+            self.anim.setKeyValueAt(0, QRect(220-width, 0, width + 2, 30))
+            #self.anim.setKeyValueAt(0, QRect(230, 0, width+2, 30))
+            #self.anim.setKeyValueAt(0.5, QRect(540-width, 0, width+2, 30))
+            #self.anim.setKeyValueAt(1, QRect(230, 0, width+2, 30))
+            self.anim.setKeyValueAt(1, QRect(550, 0, width + 2, 30))
+            self.anim.start()
 
 
 

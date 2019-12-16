@@ -11,16 +11,20 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_Player_Music(object):
     def setupUi(self, Player_Music):
         Player_Music.setObjectName("Player_Music")
+        Player_Music.setEnabled(True)
         Player_Music.resize(541, 357)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(Player_Music.sizePolicy().hasHeightForWidth())
         Player_Music.setSizePolicy(sizePolicy)
+        Player_Music.setMinimumSize(QtCore.QSize(541, 357))
+        Player_Music.setMaximumSize(QtCore.QSize(541, 357))
         Player_Music.setAcceptDrops(False)
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("icon_music/headphone_app.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap("Icon_music/headphone_app.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         Player_Music.setWindowIcon(icon)
+        Player_Music.setWindowOpacity(1.0)
         Player_Music.setToolTip("")
         Player_Music.setAutoFillBackground(False)
         Player_Music.setStyleSheet("background-color: rgb(255, 255, 255);\n"
@@ -35,7 +39,7 @@ class Ui_Player_Music(object):
         self.frame.setStyleSheet("background-color:rgb(56, 103, 164);\n"
 "margin-bottom:0;\n"
 "padding-bottom:0;\n"
-"opacity:1;")
+"")
         self.frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame.setObjectName("frame")
@@ -158,7 +162,7 @@ class Ui_Player_Music(object):
 " }")
         self.Repeat_pushButton.setText("")
         icon4 = QtGui.QIcon()
-        icon4.addPixmap(QtGui.QPixmap("repeat_button.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon4.addPixmap(QtGui.QPixmap("Icon_music/repeat_button.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.Repeat_pushButton.setIcon(icon4)
         self.Repeat_pushButton.setIconSize(QtCore.QSize(30, 30))
         self.Repeat_pushButton.setFlat(True)
@@ -166,7 +170,6 @@ class Ui_Player_Music(object):
         self.horizontalSlider_2 = QtWidgets.QSlider(self.frame)
         self.horizontalSlider_2.setGeometry(QtCore.QRect(400, 40, 91, 31))
         self.horizontalSlider_2.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
-        self.horizontalSlider_2.setRange(0,100)
         self.horizontalSlider_2.setStyleSheet("QSlider::groove:horizontal {\n"
 "    border: 1px solid #999999;\n"
 "    height: 3px; /* the groove expands to the size of the slider by default. by giving it a height, it has a fixed size */\n"
@@ -199,12 +202,9 @@ class Ui_Player_Music(object):
         self.volume.setStyleSheet(" QPushButton {\n"
 "\n"
 "boder:none;\n"
-"background-color: rgb(56, 103, 164);\n"
 "border-radius:23px; }\n"
 "\n"
-"QPushButton:hover {\n"
-"background-color: rgb(56, 103, 140);\n"
-" }")
+"")
         self.volume.setText("")
         icon5 = QtGui.QIcon()
         icon5.addPixmap(QtGui.QPixmap("Icon_music/volume_on.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
@@ -216,14 +216,20 @@ class Ui_Player_Music(object):
         self.volume.setObjectName("volume")
         self.Album = QtWidgets.QLabel(self.centralwidget)
         self.Album.setGeometry(QtCore.QRect(0, 0, 221, 201))
+        self.Album.setMaximumSize(QtCore.QSize(221, 16777215))
         self.Album.setStyleSheet("")
         self.Album.setText("")
-        self.Album.setObjectName("Album")
         self.Album.setScaledContents(True)
+        self.Album.setObjectName("Album")
         self.label_2 = QtWidgets.QLabel(self.centralwidget)
         self.label_2.setGeometry(QtCore.QRect(216, 0, 331, 201))
+        self.label_2.setStyleSheet("font: 87 12pt \"Arial\";\n"
+"")
         self.label_2.setText("")
         self.label_2.setObjectName("label_2")
+        self.label_2.raise_()
+        self.Album.raise_()
+        self.frame.raise_()
         Player_Music.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(Player_Music)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 541, 21))
