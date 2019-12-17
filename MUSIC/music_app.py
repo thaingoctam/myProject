@@ -10,6 +10,7 @@ from PyQt5.QtCore import *
 from PyQt5.QtGui import *
 from  PyQt5 import *
 from music import *
+from PyQt5.QtWebEngineWidgets import *
 class MyForm(QMainWindow):
     def __init__(self):
         super().__init__()
@@ -17,6 +18,11 @@ class MyForm(QMainWindow):
         self.ui.setupUi(self)
         self.currentPlaylist = QMediaPlaylist()
         self.player = QMediaPlayer()
+
+        self.web = QWebEngineView(self.ui.label_2)
+        self.web.load(QUrl("https://youtube.com"))
+        self.ui.label_2.setScaledContents(True)
+
         self.ui.actionOpen_File.triggered.connect(self.openFile)
         self.ui.actionOpen_Folder.triggered.connect(self.addFiles)
         self.ui.play_pause_pushButton.clicked.connect(self.btnplaystate)
@@ -152,20 +158,20 @@ class MyForm(QMainWindow):
                    pixmap.loadFromData(tag.data)
             self.ui.Album.setPixmap(pixmap)
 
-            self.ui.label_2.setText('Playing: %s \nSinger:%s' % (self.player.metaData("Title"),self.player.metaData("AlbumArtist")))
-            self.ui.label_2.setAlignment(Qt.AlignLeft)
+#            self.ui.label_2.setText('Playing: %s \nSinger:%s' % (self.player.metaData("Title"),self.player.metaData("AlbumArtist")))
+ #           self.ui.label_2.setAlignment(Qt.AlignLeft)
 
-            width = self.ui.label_2.fontMetrics().boundingRect(self.ui.label_2.text()).width()
+ #           width = self.ui.label_2.fontMetrics().boundingRect(self.ui.label_2.text()).width()
 
-            self.anim = QPropertyAnimation(self.ui.label_2, b"geometry")
-            self.anim.setDuration(10000)
-            self.anim.setLoopCount(-1)  # lặp lại vô tận
-            self.anim.setKeyValueAt(0, QRect(220-width, 0, width + 2, 50))
+#            self.anim = QPropertyAnimation(self.ui.label_2, b"geometry")
+   #         self.anim.setDuration(10000)
+#            self.anim.setLoopCount(-1)  # lặp lại vô tận
+ #           self.anim.setKeyValueAt(0, QRect(220-width, 0, width + 2, 50))
             #self.anim.setKeyValueAt(0, QRect(230, 0, width+2, 30))
             #self.anim.setKeyValueAt(0.5, QRect(540-width, 0, width+2, 30))
             #self.anim.setKeyValueAt(1, QRect(230, 0, width+2, 30))
-            self.anim.setKeyValueAt(1, QRect(550, 0, width + 2, 50))
-            self.anim.start()
+  #          self.anim.setKeyValueAt(1, QRect(550, 0, width + 2, 50))
+  #          self.anim.start()
 
 
     def prevItemPlaylist(self):
@@ -189,9 +195,10 @@ class MyForm(QMainWindow):
 
     def btnrepeatstate(self):
         if self.ui.Repeat_pushButton.isChecked():
-             self.player.setLooping(True)
+             self.currentPlaylist.setPlaybackMode(QtMultimedia.QMediaPlaylist.CurrentItemInLoop)
         else:
-             self.player.setLooping(False)
+            self.currentPlaylist.setPlaybackMode(QtMultimedia.QMediaPlaylist.Loop)
+
 
 if __name__=="__main__":
     app = QApplication(sys.argv)
