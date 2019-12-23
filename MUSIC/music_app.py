@@ -1,4 +1,8 @@
+
 # _*_ coding:utf-8 _*_
+# App play music on PC, and im studying QT_FrameWork
+# I hope you like this APP !
+
 import sys
 from mutagen import File as MutaFile
 from mutagen.mp3 import MP3
@@ -10,7 +14,7 @@ from PyQt5.QtCore import *
 from PyQt5.QtGui import *
 from  PyQt5 import *
 from music import *
-from PyQt5.QtWebEngineWidgets import *
+#from PyQt5.QtWebEngineWidgets import *
 class MyForm(QMainWindow):
     def __init__(self):
         super().__init__()
@@ -18,11 +22,9 @@ class MyForm(QMainWindow):
         self.ui.setupUi(self)
         self.currentPlaylist = QMediaPlaylist()
         self.player = QMediaPlayer()
-
-        self.web = QWebEngineView(self.ui.label_2)
-        self.web.load(QUrl("https://youtube.com"))
-        self.ui.label_2.setScaledContents(True)
-
+#       self.web = QWebEngineView(self.ui.label_2)
+#       self.web.load(QUrl("https://youtube.com"))
+#       self.web.setZoomFactor(0.5)
         self.ui.actionOpen_File.triggered.connect(self.openFile)
         self.ui.actionOpen_Folder.triggered.connect(self.addFiles)
         self.ui.play_pause_pushButton.clicked.connect(self.btnplaystate)
@@ -39,6 +41,7 @@ class MyForm(QMainWindow):
         self.timer=QTimer(self)
         self.show()
 
+# function open File audio
     def openFile(self):
         fileChoosen = QFileDialog.getOpenFileName(self, 'Open Music File', expanduser('~'), 'Audio (*.mp3 *.ogg *.wav)',
                                                   '*.mp3 *.ogg *.wav')
@@ -54,17 +57,17 @@ class MyForm(QMainWindow):
 
 
     def addFiles(self):
-        folderChoosen = QFileDialog.getExistingDirectory(self, 'Open Music Folder', expanduser('~'))                      # HÀM trả về đường dẫn hiện có được người dùng chỉ đinh
+        folderChoosen = QFileDialog.getExistingDirectory(self, 'Open Music Folder', expanduser('~'))
         if folderChoosen != None:
-            it = QDirIterator(folderChoosen)          # QDirIterator trả về 1 list các file name và đường dẫn của file đó ,Interator là hàm duyệt qua từng phần tử
-            it.next()                                 # Hàm trả về item hiện tại và di chuyển con trỏ dến item kế tiếp trong 1 trình vòng lặp
-            while it.hasNext():                       # Hàm trả về True nếu Iterator còn Item kế tiếp Item đang duyệt
-                if it.fileInfo().isDir() == False and it.filePath() != '.':            # QFileInfo::isDir()  trả về True nếu đối tượng trỏ tói đường dẫn, hoặc một liên kết. Ngược lại là False
-                    fInfo = it.fileInfo()             #QDirIterator::fileInfo() const hàm trả về thông tin filename,đường dẫn của file
-                    print(it.filePath(), fInfo.suffix())                                                                  # QFileInfo::suffix() const Hàm trả về phần mở rộng của File
+            it = QDirIterator(folderChoosen)
+            it.next()
+            while it.hasNext():
+                if it.fileInfo().isDir() == False and it.filePath() != '.':
+                    fInfo = it.fileInfo()             #
+                    print(it.filePath(), fInfo.suffix())
                     if fInfo.suffix() in ('mp3', 'ogg', 'wav'):
                         print('added file ', fInfo.fileName())
-                        self.currentPlaylist.addMedia(QMediaContent(QUrl.fromLocalFile(it.filePath()))) #currentPlaylist::addMedia(const QMediaContent &content) thêm media vào danh sách phát hiện tại(playlist tạo mới nếu dùng Qmedialplaylist) . trả về True nếu thành công, và False nếu ngược lại
+                        self.currentPlaylist.addMedia(QMediaContent(QUrl.fromLocalFile(it.filePath())))
                 it.next()
 
     def btnplaystate(self):
@@ -78,7 +81,7 @@ class MyForm(QMainWindow):
         if self.player.state() == QMediaPlayer.StoppedState:
             if self.player.mediaStatus() == self.player.NoMedia:
                 # self.player.setMedia(QMediaContent(QUrl.fromLocalFile(self.currentFile)))
-                if self.currentPlaylist.mediaCount() == 0:  # mediaCount() Trả về số Item trong playlist
+                if self.currentPlaylist.mediaCount() == 0:
                     self.statusBar().show()
                     self.statusBar().showMessage('No song for play!')
                     self.timer.start(6000)
@@ -158,20 +161,20 @@ class MyForm(QMainWindow):
                    pixmap.loadFromData(tag.data)
             self.ui.Album.setPixmap(pixmap)
 
-#            self.ui.label_2.setText('Playing: %s \nSinger:%s' % (self.player.metaData("Title"),self.player.metaData("AlbumArtist")))
- #           self.ui.label_2.setAlignment(Qt.AlignLeft)
+            self.ui.label_2.setText('Playing: %s \n\nSinger: %s' % (self.player.metaData("Title"),self.player.metaData("AlbumArtist")))
+            self.ui.label_2.setAlignment(Qt.AlignLeft)
 
- #           width = self.ui.label_2.fontMetrics().boundingRect(self.ui.label_2.text()).width()
+            width = self.ui.label_2.fontMetrics().boundingRect(self.ui.label_2.text()).width()
 
-#            self.anim = QPropertyAnimation(self.ui.label_2, b"geometry")
-   #         self.anim.setDuration(10000)
-#            self.anim.setLoopCount(-1)  # lặp lại vô tận
- #           self.anim.setKeyValueAt(0, QRect(220-width, 0, width + 2, 50))
-            #self.anim.setKeyValueAt(0, QRect(230, 0, width+2, 30))
-            #self.anim.setKeyValueAt(0.5, QRect(540-width, 0, width+2, 30))
-            #self.anim.setKeyValueAt(1, QRect(230, 0, width+2, 30))
-  #          self.anim.setKeyValueAt(1, QRect(550, 0, width + 2, 50))
-  #          self.anim.start()
+            self.anim = QPropertyAnimation(self.ui.label_2, b"geometry")
+            self.anim.setDuration(10000)
+            self.anim.setLoopCount(-1)  # lặp lại vô tận
+            self.anim.setKeyValueAt(0, QRect(220-width, 0, width + 2, 60))
+#            self.anim.setKeyValueAt(0, QRect(230, 0, width+2, 30))
+#            self.anim.setKeyValueAt(0.5, QRect(540-width, 0, width+2, 30))
+#            self.anim.setKeyValueAt(1, QRect(230, 0, width+2, 30))
+            self.anim.setKeyValueAt(1, QRect(550, 0, width + 2, 60))
+            self.anim.start()
 
 
     def prevItemPlaylist(self):
@@ -186,7 +189,7 @@ class MyForm(QMainWindow):
         infoBox = QMessageBox(self)
         infoBox.setWindowTitle('About Author')
         infoBox.setTextFormat(Qt.RichText)
-        infoBox.setText('<tr><td>This is the first App of me.</td></tr> <tr><td>Thank You use this App.</td></tr>  '
+        infoBox.setText('<tr><td>This is the first App of me.</td></tr> <tr><td>Thank You have use this App.</td></tr>  '
                         '<tr><td>If you like Please contact with me on:</td></tr> '
                         '<tr><td>FaceBook: https://www.facebook.com/tam.thaingoc </td></tr> '
                         '<tr><td>Or Gmail: Thaingoctam11cdt2@gmail.com!</td></tr>')
