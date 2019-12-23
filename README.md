@@ -1,5 +1,5 @@
 # Tam-viaipi
-### Here is all project Three website Demo, One software for play music on windowns)
+### Here is all project Three website Demo, One software for play music on windowns
 
 ##### Music: Play_music_app play file.mp3, .oog, .wav, it have basic feature of many music player sofware. It just simple but i think it
 so Cool!
@@ -21,3 +21,7 @@ so Cool!
 ##### Thirds: Website IVIETTECH (Iviettech.vn)
 
 ![HomePage_iviettech](https://user-images.githubusercontent.com/57834526/71352304-8b4c7a80-25a8-11ea-9f11-1d2fef788caf.PNG)
+
+
+#### Further reading
+  - Support from [Qt Pages](https://www.qt.io)
