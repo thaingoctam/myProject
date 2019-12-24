@@ -28,7 +28,9 @@ class MyForm(QMainWindow):
         self.ui.previous_pushButton.clicked.connect(self.prevItemPlaylist)
         self.ui.Next_pushButton.clicked.connect(self.nextItemPlaylist)
         self.ui.volume.clicked.connect(self.volumestate)
-        self.player.setVolume(0)
+        # set up initial volume
+        self.ui.horizontalSlider_2.setValue(50)
+        self.volume(50)
         self.ui.horizontalSlider.sliderMoved.connect(self.seekPosition)
         self.ui.horizontalSlider.press_slide.connect(self.seekPosition)
         self.ui.horizontalSlider_2.press_slide.connect(self.volume)
@@ -38,6 +40,7 @@ class MyForm(QMainWindow):
         self.player.positionChanged.connect(self.qmp_positionChanged)
         self.player.audioAvailableChanged.connect(self.changeAlbum)
         self.player.durationChanged.connect(self.update_duration)
+        # timer for display starus Bar
         self.timer=QTimer(self)
         self.show()
 
@@ -47,15 +50,13 @@ class MyForm(QMainWindow):
                                                   '*.mp3 *.ogg *.wav')
         if fileChoosen != None:
             self.currentPlaylist.addMedia(QMediaContent(QUrl.fromLocalFile(fileChoosen[0])))
-
+# Function open Folder
     def folderOpen(self):
         folderAc = QAction('Open Folder', self)
         folderAc.setShortcut('Ctrl+D')
         folderAc.setStatusTip('Open Folder (Will add all the files in the folder) ')
         folderAc.triggered.connect(self.addFiles)
         return folderAc
-
-
     def addFiles(self):
         folderChoosen = QFileDialog.getExistingDirectory(self, 'Open Music Folder', expanduser('~'))
         if folderChoosen != None:
@@ -69,7 +70,7 @@ class MyForm(QMainWindow):
                         print('added file ', fInfo.fileName())
                         self.currentPlaylist.addMedia(QMediaContent(QUrl.fromLocalFile(it.filePath())))
                 it.next()
-
+# Function check status of button play/pause
     def btnplaystate(self):
         if self.ui.play_pause_pushButton.isChecked():
              self.playHandler()
@@ -122,9 +123,9 @@ class MyForm(QMainWindow):
                     self.player.setPosition(position)
 
     def volume(self, position):
-        sender = self.sender()
-        if isinstance(sender, QSlider):
-            if self.ui.horizontalSlider_2.mouseReleaseEvent:
+        #sender = self.sender()
+        #if isinstance(sender, QSlider):
+            #if self.ui.horizontalSlider_2.mouseReleaseEvent:
                self.player.setVolume(position)
                self.ui.Voice_label.setText('%d' % (int(position)))
 
@@ -151,6 +152,7 @@ class MyForm(QMainWindow):
             # update the text label
         self.ui.label_00.setText('%d:%02d' % (int(position / 60000), int((position / 1000) % 60)))
 
+# Function display Art Album and animation Text
     def changeAlbum(self):
         if self.player.isAudioAvailable():
             pixmap = QtGui.QPixmap()
@@ -197,6 +199,7 @@ class MyForm(QMainWindow):
         infoBox.addButton('OK', QMessageBox.AcceptRole)
         infoBox.show()
 
+# Function repeat the song
     def btnrepeatstate(self):
         if self.ui.Repeat_pushButton.isChecked():
              self.currentPlaylist.setPlaybackMode(QtMultimedia.QMediaPlaylist.CurrentItemInLoop)

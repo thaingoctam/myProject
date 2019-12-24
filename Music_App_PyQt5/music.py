@@ -86,7 +86,7 @@ class Ui_Player_Music(object):
         self.play_pause_pushButton.setGeometry(QtCore.QRect(220, 30, 51, 51))
         self.play_pause_pushButton.setCursor(QtGui.QCursor(QtCore.Qt.ArrowCursor))
         self.play_pause_pushButton.setFocusPolicy(QtCore.Qt.StrongFocus)
-        self.play_pause_pushButton.setToolTip("Pause Song")
+        self.play_pause_pushButton.setToolTip("Play/ Pause Song")
         self.play_pause_pushButton.setStyleSheet("QPushButton {\n"
 "\n"
 "border-radius:15px; }\n"
@@ -291,7 +291,7 @@ class Ui_Player_Music(object):
         self.label_00.setText(_translate("Player_Music", "0:00"))
         self.Next_pushButton.setToolTip(_translate("Player_Music", "Next Song"))
         self.previous_pushButton.setToolTip(_translate("Player_Music", "Previous Song"))
-        self.Repeat_pushButton.setToolTip(_translate("Player_Music", "Repeat All"))
+        self.Repeat_pushButton.setToolTip(_translate("Player_Music", "Repeat"))
         self.Voice_label.setText(_translate("Player_Music", "0:00"))
         self.menuFile.setTitle(_translate("Player_Music", "File"))
         self.menuHelp.setTitle(_translate("Player_Music", "Help"))
