@@ -7,6 +7,7 @@
 # WARNING! All changes made in this file will be lost!
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5.QtCore import pyqtSignal
 
 class Ui_Player_Music(object):
     def setupUi(self, Player_Music):
@@ -44,9 +45,10 @@ class Ui_Player_Music(object):
         self.frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame.setObjectName("frame")
-        self.horizontalSlider = QtWidgets.QSlider(self.frame)
+        self.horizontalSlider = Slider(self.frame)
         self.horizontalSlider.setGeometry(QtCore.QRect(50, 90, 441, 41))
         self.horizontalSlider.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.horizontalSlider.setTracking(True)
         self.horizontalSlider.setStyleSheet("QSlider::groove:horizontal {\n"
 "    border: 1px solid #999999;\n"
 "    height: 3px; /* the groove expands to the size of the slider by default. by giving it a height, it has a fixed size */\n"
@@ -62,8 +64,9 @@ class Ui_Player_Music(object):
 "    border-radius: 7px;\n"
 "}")
         self.horizontalSlider.setOrientation(QtCore.Qt.Horizontal)
-        self.horizontalSlider.setTickPosition(QtWidgets.QSlider.TicksAbove)
-        self.horizontalSlider.setTickInterval(10)
+#        self.horizontalSlider.setTickPosition(QtWidgets.QSlider.TicksAbove)
+#        self.horizontalSlider.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+#        self.horizontalSlider.setTickInterval(10)
         self.horizontalSlider.setObjectName("horizontalSlider")
         self.label_01 = QtWidgets.QLabel(self.frame)
         self.label_01.setEnabled(True)
@@ -102,7 +105,7 @@ class Ui_Player_Music(object):
 " ")
         self.play_pause_pushButton.setText("")
         icon1 = QtGui.QIcon()
-        icon1.addPixmap(QtGui.QPixmap("Icon_music/play_btt.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon1.addPixmap(QtGui.QPixmap("Icon_music/play_btt.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         icon1.addPixmap(QtGui.QPixmap("Icon_music/stop_btt.svg"), QtGui.QIcon.Normal, QtGui.QIcon.On)
         self.play_pause_pushButton.setIcon(icon1)
         self.play_pause_pushButton.setIconSize(QtCore.QSize(30, 30))
@@ -178,9 +181,10 @@ class Ui_Player_Music(object):
         self.Repeat_pushButton.setCheckable(True)
         self.Repeat_pushButton.setFlat(True)
         self.Repeat_pushButton.setObjectName("Repeat_pushButton")
-        self.horizontalSlider_2 = QtWidgets.QSlider(self.frame)
+        self.horizontalSlider_2 = Slider(self.frame)
         self.horizontalSlider_2.setGeometry(QtCore.QRect(400, 40, 91, 31))
         self.horizontalSlider_2.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.horizontalSlider_2.setTracking(True)
         self.horizontalSlider_2.setStyleSheet("QSlider::groove:horizontal {\n"
 "    border: 1px solid #999999;\n"
 "    height: 2px; /* the groove expands to the size of the slider by default. by giving it a height, it has a fixed size */\n"
@@ -301,6 +305,33 @@ class Ui_Player_Music(object):
         self.actionExit.setShortcut(_translate("Player_Music", "Ctrl+E"))
         self.actionAbout_Author.setText(_translate("Player_Music", "About Author"))
 
+class Slider(QtWidgets.QSlider):
+    press_slide = pyqtSignal(int)
+    def mousePressEvent(self, event):
+        super(Slider, self).mousePressEvent(event)
+        if event.button() == QtCore.Qt.LeftButton:
+            val = self.pixelPosToRangeValue(event.pos())
+            self.setValue(val)
+            self.press_slide.emit(val)
+
+    def pixelPosToRangeValue(self, pos):
+        opt = QtWidgets.QStyleOptionSlider()
+        self.initStyleOption(opt)
+        gr = self.style().subControlRect(QtWidgets.QStyle.CC_Slider, opt, QtWidgets.QStyle.SC_SliderGroove, self)
+        sr = self.style().subControlRect(QtWidgets.QStyle.CC_Slider, opt, QtWidgets.QStyle.SC_SliderHandle, self)
+
+        if self.orientation() == QtCore.Qt.Horizontal:
+            sliderLength = sr.width()
+            sliderMin = gr.x()
+            sliderMax = gr.right() - sliderLength + 1
+        else:
+            sliderLength = sr.height()
+            sliderMin = gr.y()
+            sliderMax = gr.bottom() - sliderLength + 1;
+        pr = pos - sr.center() + sr.topLeft()
+        p = pr.x() if self.orientation() == QtCore.Qt.Horizontal else pr.y()
+        return QtWidgets.QStyle.sliderValueFromPosition(self.minimum(), self.maximum(), p - sliderMin,
+                                               sliderMax - sliderMin, opt.upsideDown)
 
 if __name__ == "__main__":
     import sys

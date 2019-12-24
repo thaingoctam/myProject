@@ -22,17 +22,17 @@ class MyForm(QMainWindow):
         self.ui.setupUi(self)
         self.currentPlaylist = QMediaPlaylist()
         self.player = QMediaPlayer()
-#       self.web = QWebEngineView(self.ui.label_2)
-#       self.web.load(QUrl("https://youtube.com"))
-#       self.web.setZoomFactor(0.5)
         self.ui.actionOpen_File.triggered.connect(self.openFile)
         self.ui.actionOpen_Folder.triggered.connect(self.addFiles)
         self.ui.play_pause_pushButton.clicked.connect(self.btnplaystate)
         self.ui.previous_pushButton.clicked.connect(self.prevItemPlaylist)
         self.ui.Next_pushButton.clicked.connect(self.nextItemPlaylist)
         self.ui.volume.clicked.connect(self.volumestate)
+        self.player.setVolume(0)
         self.ui.horizontalSlider.sliderMoved.connect(self.seekPosition)
-        self.ui.horizontalSlider_2.sliderMoved.connect(self.volume)
+        self.ui.horizontalSlider.press_slide.connect(self.seekPosition)
+        self.ui.horizontalSlider_2.press_slide.connect(self.volume)
+        self.ui.horizontalSlider_2.valueChanged.connect(self.volume)
         self.ui.actionAbout_Author.triggered.connect(self.Author)
         self.ui.Repeat_pushButton.clicked.connect(self.btnrepeatstate)
         self.player.positionChanged.connect(self.qmp_positionChanged)
@@ -118,12 +118,13 @@ class MyForm(QMainWindow):
         sender = self.sender()
         if isinstance(sender, QSlider):
             if self.player.isSeekable():
-                self.player.setPosition(position)
+                if self.ui.horizontalSlider.mouseReleaseEvent:
+                    self.player.setPosition(position)
 
     def volume(self, position):
         sender = self.sender()
         if isinstance(sender, QSlider):
-            if self.ui.horizontalSlider.mouseReleaseEvent:
+            if self.ui.horizontalSlider_2.mouseReleaseEvent:
                self.player.setVolume(position)
                self.ui.Voice_label.setText('%d' % (int(position)))
 
