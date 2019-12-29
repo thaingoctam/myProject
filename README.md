@@ -5,7 +5,7 @@
 so Cool!
 ### How to use:
 ##### 1. Open File ( You can open single file )
-##### 2. Open Fordel ( Open many file in a folder)
+##### 2. Open Folder ( Open many file in a folder)
 
 ![music app](https://user-images.githubusercontent.com/57834526/71351475-57705580-25a6-11ea-853c-52620a41aad5.PNG)
 
