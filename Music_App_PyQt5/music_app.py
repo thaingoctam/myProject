@@ -38,6 +38,7 @@ class MyForm(QMainWindow):
         self.player.durationChanged.connect(self.update_duration)
         # timer for display starus Bar
         self.timer=QTimer(self)
+        self.userAction=0
         self.show()
 
 # function open File audio
@@ -177,11 +178,11 @@ class MyForm(QMainWindow):
 
 
     def prevItemPlaylist(self):
-        if self.currentPlaylist.mediaCount() != 0:
+        if self.currentPlaylist.mediaCount() != 0 and self.userAction == 1:
            self.player.playlist().previous()
 
     def nextItemPlaylist(self):
-        if self.currentPlaylist.mediaCount() != 0:
+        if self.currentPlaylist.mediaCount() != 0 and self.userAction == 1:
            self.player.playlist().next()
 
     def Author(self):
