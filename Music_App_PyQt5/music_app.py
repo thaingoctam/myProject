@@ -5,16 +5,11 @@
 
 import sys
 from mutagen import File as MutaFile
-from mutagen.mp3 import MP3
-from mutagen.id3 import ID3
 from os.path import expanduser
 from PyQt5.QtWidgets import *
 from PyQt5.QtMultimedia import *
 from PyQt5.QtCore import *
-from PyQt5.QtGui import *
-from  PyQt5 import *
 from music import *
-#from PyQt5.QtWebEngineWidgets import *
 class MyForm(QMainWindow):
     def __init__(self):
         super().__init__()
@@ -33,6 +28,7 @@ class MyForm(QMainWindow):
         self.volume(50)
         self.ui.horizontalSlider.sliderMoved.connect(self.seekPosition)
         self.ui.horizontalSlider.press_slide.connect(self.seekPosition)
+
         self.ui.horizontalSlider_2.press_slide.connect(self.volume)
         self.ui.horizontalSlider_2.valueChanged.connect(self.volume)
         self.ui.actionAbout_Author.triggered.connect(self.Author)
@@ -201,10 +197,10 @@ class MyForm(QMainWindow):
 
 # Function repeat the song
     def btnrepeatstate(self):
-        if self.ui.Repeat_pushButton.isChecked():
-             self.currentPlaylist.setPlaybackMode(QtMultimedia.QMediaPlaylist.CurrentItemInLoop)
+        if self.ui.Repeat_pushButton.isChecked()and self.currentPlaylist.mediaCount() != 0:
+             self.currentPlaylist.setPlaybackMode(QMediaPlaylist.CurrentItemInLoop)
         else:
-            self.currentPlaylist.setPlaybackMode(QtMultimedia.QMediaPlaylist.Loop)
+            self.currentPlaylist.setPlaybackMode(QMediaPlaylist.Loop)
 
 
 if __name__=="__main__":

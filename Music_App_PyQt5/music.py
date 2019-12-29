@@ -23,7 +23,7 @@ class Ui_Player_Music(object):
         Player_Music.setMaximumSize(QtCore.QSize(541, 357))
         Player_Music.setAcceptDrops(False)
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("Icon_music/headphone_app.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap("C:\\Users\\OS\Desktop\\test\\Icon_music\\headphone_app.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         Player_Music.setWindowIcon(icon)
         Player_Music.setWindowOpacity(1.0)
         Player_Music.setToolTip("")
@@ -50,7 +50,6 @@ class Ui_Player_Music(object):
         self.horizontalSlider.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.horizontalSlider.setTracking(True)
         self.horizontalSlider.setStyleSheet("QSlider::groove:horizontal {\n"
-"    border: 1px solid #999999;\n"
 "    height: 3px; /* the groove expands to the size of the slider by default. by giving it a height, it has a fixed size */\n"
 "    background:white;\n"
 "\n"
@@ -86,7 +85,7 @@ class Ui_Player_Music(object):
         self.play_pause_pushButton.setGeometry(QtCore.QRect(220, 30, 51, 51))
         self.play_pause_pushButton.setCursor(QtGui.QCursor(QtCore.Qt.ArrowCursor))
         self.play_pause_pushButton.setFocusPolicy(QtCore.Qt.StrongFocus)
-        self.play_pause_pushButton.setToolTip("Play/ Pause Song")
+        self.play_pause_pushButton.setToolTip("Play/Pause Song")
         self.play_pause_pushButton.setStyleSheet("QPushButton {\n"
 "\n"
 "border-radius:15px; }\n"
@@ -105,8 +104,8 @@ class Ui_Player_Music(object):
 " ")
         self.play_pause_pushButton.setText("")
         icon1 = QtGui.QIcon()
-        icon1.addPixmap(QtGui.QPixmap("Icon_music/play_btt.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        icon1.addPixmap(QtGui.QPixmap("Icon_music/stop_btt.svg"), QtGui.QIcon.Normal, QtGui.QIcon.On)
+        icon1.addPixmap(QtGui.QPixmap("C:\\Users\\OS\Desktop\\test\\Icon_music\\play_btt.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon1.addPixmap(QtGui.QPixmap("C:\\Users\\OS\Desktop\\test\\Icon_music\\stop_btt.svg"), QtGui.QIcon.Normal, QtGui.QIcon.On)
         self.play_pause_pushButton.setIcon(icon1)
         self.play_pause_pushButton.setIconSize(QtCore.QSize(30, 30))
         self.play_pause_pushButton.setCheckable(True)
@@ -129,7 +128,7 @@ class Ui_Player_Music(object):
 " }")
         self.Next_pushButton.setText("")
         icon2 = QtGui.QIcon()
-        icon2.addPixmap(QtGui.QPixmap("Icon_music/next_btt.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon2.addPixmap(QtGui.QPixmap("C:\\Users\\OS\Desktop\\test\\Icon_music\\next_btt.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.Next_pushButton.setIcon(icon2)
         self.Next_pushButton.setIconSize(QtCore.QSize(30, 30))
         self.Next_pushButton.setFlat(True)
@@ -151,7 +150,7 @@ class Ui_Player_Music(object):
 " }")
         self.previous_pushButton.setText("")
         icon3 = QtGui.QIcon()
-        icon3.addPixmap(QtGui.QPixmap("Icon_music/previous_btt.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon3.addPixmap(QtGui.QPixmap("C:\\Users\\OS\Desktop\\test\\Icon_music\\previous_btt.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.previous_pushButton.setIcon(icon3)
         self.previous_pushButton.setIconSize(QtCore.QSize(30, 30))
         self.previous_pushButton.setAutoDefault(False)
@@ -174,8 +173,8 @@ class Ui_Player_Music(object):
 " }")
         self.Repeat_pushButton.setText("")
         icon4 = QtGui.QIcon()
-        icon4.addPixmap(QtGui.QPixmap("Icon_music/NoRepeat_btt.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        icon4.addPixmap(QtGui.QPixmap("Icon_music/Repeat_btt.png"), QtGui.QIcon.Normal, QtGui.QIcon.On)
+        icon4.addPixmap(QtGui.QPixmap("C:\\Users\\OS\Desktop\\test\\Icon_music\\NoRepeat_btt.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon4.addPixmap(QtGui.QPixmap("C:\\Users\\OS\Desktop\\test\\Icon_music\\Repeat_btt.png"), QtGui.QIcon.Normal, QtGui.QIcon.On)
         self.Repeat_pushButton.setIcon(icon4)
         self.Repeat_pushButton.setIconSize(QtCore.QSize(30, 30))
         self.Repeat_pushButton.setCheckable(True)
@@ -186,7 +185,6 @@ class Ui_Player_Music(object):
         self.horizontalSlider_2.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.horizontalSlider_2.setTracking(True)
         self.horizontalSlider_2.setStyleSheet("QSlider::groove:horizontal {\n"
-"    border: 1px solid #999999;\n"
 "    height: 2px; /* the groove expands to the size of the slider by default. by giving it a height, it has a fixed size */\n"
 "    background:white;\n"
 "\n"
@@ -223,8 +221,8 @@ class Ui_Player_Music(object):
 "")
         self.volume.setText("")
         icon5 = QtGui.QIcon()
-        icon5.addPixmap(QtGui.QPixmap("Icon_music/volume_on.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        icon5.addPixmap(QtGui.QPixmap("Icon_music/volume_off.png"), QtGui.QIcon.Normal, QtGui.QIcon.On)
+        icon5.addPixmap(QtGui.QPixmap("C:\\Users\\OS\Desktop\\test\\Icon_music\\volume_on.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon5.addPixmap(QtGui.QPixmap("C:\\Users\\OS\Desktop\\test\\Icon_music\\volume_off.png"), QtGui.QIcon.Normal, QtGui.QIcon.On)
         self.volume.setIcon(icon5)
         self.volume.setIconSize(QtCore.QSize(25, 25))
         self.volume.setCheckable(True)
